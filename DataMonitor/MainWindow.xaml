@@ -1,0 +1,104 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DataMonitor.MainWindow"
+        
+    SizeToContent="Height"  Foreground="White" Title="Data Monitor" Background="Transparent" Width="210" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown" BorderThickness="0" FontFamily="Segoe UI" Margin="0" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded" Icon="windowIcon.ico">
+    <Border BorderThickness="2" BorderBrush="Black" Padding="0" Margin="0" CornerRadius="5">
+        <Grid Height="auto" Margin="0">
+            <StackPanel Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Width="auto" Height="auto">
+                <StackPanel x:Name="titleBar" Height="auto" Margin="0,0,0,0" Background="#FF131313" VerticalAlignment="Top">
+                    <Grid Margin="10,5">
+
+                        <TextBlock Foreground="#FFFDFDFD" FontSize="10" HorizontalAlignment="Left" Text="CW DATA MONITOR"></TextBlock>
+                        <TextBlock Foreground="#FFFDFDFD" FontSize="10"  FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,0,0">
+
+                            
+                                <Grid Background="#FF131313" x:Name="btnSetting" MouseDown="btnSetting_MouseUp">
+									<Path Height="16" Width="16" Fill="White" Data="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+								</Grid>
+							
+								<Grid Background="#FF131313" x:Name="btnMinimize" Margin="0 0 0 0" MouseDown="btnMinimize_MouseUp">
+									<!-- <Path Fill="White" Data="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/> -->
+									<Path  Height="16" Width="16" Fill="White" Data="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+								</Grid>
+                            
+                            
+							</TextBlock>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="panelSettings" Visibility="Collapsed" Background="White">
+                    <StackPanel Margin="10 10 10 5">
+                        <TextBlock FontSize="14" Grid.Row="0" FontWeight="Bold" Foreground="Black" Text="ACCOUNT SETUP" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="lblMyCareSettingsDetail" Grid.Row="0" Margin="0 10 0 10" TextWrapping="WrapWithOverflow" Foreground="Black"  Text="Your MyCare account is required to read data usage. This information is kept encrypted when stored on your device." FontSize="12" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="0" FontWeight="Bold" Foreground="Black" Text="MyCare Username"></TextBlock>
+                        <TextBox x:Name="txtUsername" Grid.Row="1" />
+                        <TextBlock Grid.Row="2" FontWeight="Bold"  Foreground="Black" Text="Password"></TextBlock>
+                        <PasswordBox x:Name="txtPassword" Grid.Row="3" />
+                        <Button x:Name="btnSaveAccount" Margin="0 10 0 0" Padding="5 5 5 5" Grid.Row="4" Content="Save" Click="btnSaveAccount_Click"></Button>
+                        <Button x:Name="btnForgetMe" Margin="0 10 0 0" Padding="5 5 5 5" Grid.Row="4" Content="Forget Me" Click="btnForgetMe_Click"></Button>
+                    </StackPanel>
+                    <StackPanel Margin="10 5 10 10">
+                        <TextBlock FontSize="14" Grid.Row="0" FontWeight="Bold" Foreground="Black" Text="SYSTEM SETTINGS" HorizontalAlignment="Center"></TextBlock>
+                        <CheckBox x:Name="chkRunAtStartup" Margin="2" Content="Run at Startup" Checked="chkRunAtStartup_Checked" Unchecked="chkRunAtStartup_UnChecked" />
+                        <CheckBox x:Name="chkResetSessionDaily" Margin="2" Content="Reset Session Daily" Checked="chkResetSessionDaily_Checked" Unchecked="chkResetSessionDaily_UnChecked" />
+                        <Button x:Name="btnResetSession" Margin="0 10 0 0" Padding="5 5 5 5" Grid.Row="4" Content="Reset Session Counter" Click="btnResetSession_Click"></Button>
+                        
+                        <TextBlock Grid.Row="0" Margin="0 10 0 10" Foreground="Black" TextWrapping="WrapWithOverflow"  FontSize="12" HorizontalAlignment="Center">
+                            This software is NOT affliated with Cable and Wireless Seychelles. Do not download from anywhere else except the original at <Hyperlink NavigateUri="https://github.com/deanh248" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/deanh248</Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="panelMain" Visibility="Visible" Margin="0,0,0,0" Width="auto" MinHeight="100">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#2a7ec6" Offset="0"/>
+                            <GradientStop Color="#226ba9" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <StackPanel x:Name="blueHeaderInner" Margin="10,5,10,10" >
+                        <Grid Margin="0" Height="42" Width="auto" HorizontalAlignment="Stretch" >
+                            <TextBlock x:Name="lblLargeHeader" Grid.Row="0" FontSize="18" Foreground="White" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Text="Fetching Usage..."></TextBlock>
+                            <TextBlock x:Name="lblSmallHeader"  FontSize="12" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Please Wait..."></TextBlock>
+                            <TextBlock x:Name="lblPercent" FontSize="10" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="..."></TextBlock>
+
+                        </Grid>
+                        <StackPanel Name="ProgressBarContainer" Height="auto" Width="auto" Background="#004a80" HorizontalAlignment="Stretch" Margin="0,2,0,0">
+                            <Rectangle Name="ProgressBarInner" Margin="2" Height="10" Width="0" Fill="#FF5CDCE9" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <Grid Margin="5 5 5 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" >
+                                <TextBlock FontWeight="Bold"  FontSize="10" Text="Download"></TextBlock>
+                                <TextBlock x:Name="txtSessionDataRateDown" Text="0 KB/s"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock FontWeight="Bold" FontSize="10" Text="Upload"></TextBlock>
+                                <TextBlock x:Name="txtSessionDataRateUp" Text="0 KB/s"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock FontWeight="Bold" FontSize="10" Text="This Session"></TextBlock>
+                                <TextBlock x:Name="txtSessionDataCounter" Text="0 MB"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="whiteContent" Background="White" Margin="0,0,0,0" Width="auto" Height="auto" MinHeight="5">
+                    <TextBlock x:Name="lblStatus" Foreground="Black" FontSize="11" Margin="10 2 2 2" Text=" "></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
