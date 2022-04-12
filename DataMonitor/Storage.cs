@@ -68,7 +68,6 @@ namespace DataMonitor
             set
             {
                 SetRegistryKey("ResetSessionDaily", value.ToString());
-                SetStartupState(value);
             }
         }
 
