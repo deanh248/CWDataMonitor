@@ -93,15 +93,15 @@ namespace DataMonitor
             if (size < 0)
                 size = 0;
 
-            long kb = size / 1000;
+            long kb = (long)(size / Math.Pow(2, 10));
 
-            if (kb > 1000 * 1000)
+            if (kb > 1000000)
             {
-                return (kb / 1000.0f / 1000f).ToString("0.00") + " GB";
+                return (kb / Math.Pow(2, 20)).ToString("0.00") + " GB";
             }
             else if (kb > 1000)
             {
-                return (kb / 1000.0f).ToString("0.00") + " MB";
+                return (kb / Math.Pow(2, 10)).ToString("0.00") + " MB";
 
             }
             else if (kb > 0)
