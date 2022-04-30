@@ -1,7 +1,7 @@
 # CW Data Monitor v1.0.0
 Unofficial desktop usage monitor for Cable and Wireless Seychelles.
 
-![Screen](https://i.imgur.com/TS9XIbY.jpg)
+![Screen](https://i.imgur.com/P4ZEKMc.jpg)
 
 ## V1.0.0
 - Initial
